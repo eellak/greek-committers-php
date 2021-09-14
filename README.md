@@ -9,7 +9,7 @@ Rewritten from scratch in PHP. Also, a lot of debugging code added.
 
 ## Instructions
 
-Rename config_sample.php to config.php and edit the values according to your needs.
+Copy config_sample.php to config.php and edit the values according to your needs.
 
 ## Github API -good to know- information:
 
