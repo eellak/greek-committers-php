@@ -1,18 +1,18 @@
 # greek-commiters-php
-Script to retreive github commiters based on location and prepare the information for wordpress import
+Script to retrieve GitHub commiters based on location and prepare the information for importing into WordPress.
 
 Continuation of the repository:
 
 https://github.com/eellak/greek-commiters
 
-Writen in php and updated on the way how it works. Also a lot of debuging code added.
+Rewritten from scratch in PHP. Also, a lot of debugging code added.
 
-Rename che config_sampe.php to config.php and edit the values accoring to your needs.
+## Instructions
 
+Rename config_sample.php to config.php and edit the values according to your needs.
 
-Github API -good to know- information:
+## Github API -good to know- information:
 
-Every search query brings up to 100 results per query, and using pages you can retrieve only the 1000 results in total (10 pages). It informs you for the total number of results.
+1. Every search query brings up to 100 results per query, and using pages you can retrieve only the 1000 results in total (10 pages). It informs you for the total number of results.
 
-The location part is tricky because users can write the location field with anything (ex "Mars).
-
+2. The location part is tricky because users can write the location field with anything (ex "Mars).
