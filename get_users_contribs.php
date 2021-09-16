@@ -20,40 +20,32 @@ while (($user = fgets($fpu)) !== false) {  // WHILE read file
     $lastyear = date('Y-m-d\TH:i:s' . substr((string)$mktime, 1, 4) . '\Z', strtotime("-1 year"));
     $yearbeforelast = date('Y-m-d\TH:i:s' . substr((string)$mktime, 1, 4) . '\Z', strtotime("-2 years"));
     // -1 year to NOW
-    runwhenready("graphql");
-    echo ", ";
+    $rwr = runwhenready("graphql");
+    // echo "USER: {$user}, -1 year - ResourcesLimit: {$rwr}) ";
     $thejson = get_json_post_token("/graphql", $user, $lastyear, $thisyear);
     $djson = json_dec($thejson);
-    /* FIX? */
+    /* FIX? long line.. */
     if (isset($djson["data"]["user"]["contributionsCollection"]["contributionCalendar"]["totalContributions"])) {
         $usercontribsly = $djson["data"]["user"]["contributionsCollection"]["contributionCalendar"]["totalContributions"];
     }
-    if ($djson == "JSONERROR") {
-        $ERRORUSER .= "{$user}, ";
-    }
+    if ($djson == "JSONERROR") { $ERRORUSER .= "{$user}, "; }
     // -2 year to -1 year
-    runwhenready("graphql");
-    echo "\t";
+    $rwr = runwhenready("graphql");
+    // echo ", -2 to -1 year - ResourcesLimit: {$rwr} \t";
     $thejson = get_json_post_token("/graphql", $user, $yearbeforelast, $lastyear);
     $djson = json_dec($thejson);
-    /* FIX? */
+    /* FIX? long line.. */
     if (isset($djson["data"]["user"]["contributionsCollection"]["contributionCalendar"]["totalContributions"])) {
         $usercontribsybl = $djson["data"]["user"]["contributionsCollection"]["contributionCalendar"]["totalContributions"];
     }
-    if ($djson == "JSONERROR") {
-        $ERRORUSER .= "{$user}, ";
-    }
+    if ($djson == "JSONERROR") { $ERRORUSER .= "{$user}, "; }
 
     // SUM the 2 year contributions
-    if (!isset($usercontribsly)) {
-        $usercontribsly = 0;
-    }
-    if (!isset($usercontribsybl)) {
-        $usercontribsybl = 0;
-    }
+    if (!isset($usercontribsly))  { $usercontribsly = 0;  }
+    if (!isset($usercontribsybl)) { $usercontribsybl = 0; }
     $usercontribstotal = $usercontribsly + $usercontribsybl;
 
-    echo "User: {$user},\t Contribs: LY: {$usercontribsly}, YBL: {$usercontribsybl}, TOTAL: {$usercontribstotal} \n";
+    echo "User: {$user},\t Contribs: LY: {$usercontribsly}, YBL: {$usercontribsybl}, TOTAL: {$usercontribstotal} ResourcesLimit: {$rwr} \n";
 
     $auc[] = array("usercontribs" => $usercontribstotal, "user" => $user);
 } // END OF WHILE read file
@@ -87,7 +79,7 @@ echo "\nERRORS: {$ERRORS}\n";
 
 echo "--------------------\nUSER ERRORS: {$ERRORUSER}\n";
 
-echo "\n<br />Done ..,\n";
+echo "\n<br />Done users_contribs ..,\n";
 
 
 ?>
