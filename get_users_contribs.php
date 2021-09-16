@@ -10,7 +10,6 @@ $ERRORUSER = "";
  * then save it to a json file 
 */
 
-// $fpu = fopen("users_SAMPLE.txt", "r"); 
 $fpu = fopen("users.txt", "r");
 while (($user = fgets($fpu)) !== false) {  // WHILE read file
     $user = str_replace("\n", "", $user);

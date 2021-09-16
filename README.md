@@ -28,7 +28,7 @@ Rewritten from scratch in PHP. Also, a lot of debugging code added.
 Rename the file config_sample.php to config.php . Edit it to meet your needs:
 
 - **TOKEN**: add your github token for API calls
-- **USERDATA, USERPATH, USERINFO, PATHINFO**: the (path) directory in which the json files with information for users will be stored. Directories will be automaticaly if they do not exist (check directory permissions)
+- **USERDATA, USERPATH, USERINFO**: the (path) directory in which the json files with information for users will be stored. Directories will be automaticaly if they do not exist (check directory permissions)
 - **RESULTSNUMBER**: limit the saved results. It keeps the profiles with most contributions first
 - **API_URL**: the API url of github
 - **USERAGENT**: in some cases the user agent in curl calls needs to be defined
