@@ -97,9 +97,6 @@ function runwhenready($resource) {
 	     
     if ($resource == "rate") {
 		if($limitrate-- < 1) {
-			
-			echo "\n\nAFTER IF !!: {$limitrate} \n\n\n" ; 
-			
           $time = 60; // rate limit resets after 1 hour, so asking every 1 min is ok
           $djson["rate"]["remaining"] = 0;
           while ($djson["rate"]["remaining"] < 1) {
