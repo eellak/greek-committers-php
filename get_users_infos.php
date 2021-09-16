@@ -18,7 +18,7 @@ $fpu = fopen("users.txt", "r");
 while (($user = fgets($fpu)) !== false) {  // WHILE read file
     $user = str_replace("\n", "", $user);
     $rwr = runwhenready("rate");
-    file_put_contents(PATHINFO . "/{$user}.json", get_json_token("/users/$user"));
+    file_put_contents(USERDATA.USERPATH.USERINFO . "/{$user}.json", get_json_token("/users/$user"));
     echo "User: {$user} - ResourcesLimit: {$rwr} \n";
 } // END OF WHILE read file
 fclose($fpu);

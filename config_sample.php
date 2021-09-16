@@ -4,11 +4,11 @@
    define("USERDATA", "greek-commiters-3000/") ;
    define("USERPATH", "user/") ;
    define("USERINFO", "info/") ;
-   define("USERSFILE", "sum_contr-3000.txt") ;
    define("RESULTSNUMBER", "3100"); // if we want to limit the saved results
    define("API_URL", "https://api.github.com") ;
    define("USERAGENT", "Mozilla/5.0 (X11; Fedora; Linux x86_64; rv:76.0) Gecko/20100101 Firefox/76.0") ; // for curl
    define("TIMEZONE", "Europe/Athens") ;
+   
 $perioxArray = array(
     "Athens+-location:GA+-location:Georgia+-location:OH+-location:ohio",
     "Thessaloniki",
